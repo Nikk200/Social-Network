@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
+from django.contrib.auth import authenticate
 
 class UserSignUpSerializer(serializers.ModelSerializer):
     first_name = serializers.CharField(write_only=True)
@@ -38,3 +39,29 @@ class UserSignUpSerializer(serializers.ModelSerializer):
             password = validated_data['password']
         )
         return user
+
+
+
+class UserSignInSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+    password = serializers.CharField(write_only=True)
+    
+
+    def validate(self, data):
+        email = data['email'].lower()
+        password = data['password']
+
+        user = authenticate(username=email, password=password)
+        if user is None:
+            raise ValidationError("Invalid credentials.")
+        return data
+        
+
+
+
+
+
+
+
+
+
