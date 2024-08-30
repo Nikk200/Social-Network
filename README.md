@@ -1,4 +1,4 @@
-```markdown
+
 # Social Network
 
 A social networking application that allows users to connect with each other by sending and accepting friend requests, searching for users, and managing their friend lists through a RESTful API built with Django REST Framework.
