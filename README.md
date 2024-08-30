@@ -82,23 +82,6 @@ You can then access the API at `http://127.0.0.1:8000/`.
 - `GET /list-friends/` - List all friends (users who have accepted friend requests).
 - `GET /list-pending-requests/` - List all pending friend requests received.
 
-### Docker Setup
-
-To containerize and run the application using Docker, follow these steps:
-
-1. Ensure Docker is installed and running on your system. For Windows, make sure Docker Desktop is running and that your terminal has elevated privileges (run as administrator).
-
-2. Build and run the containers:
-   ```bash
-   docker-compose up --build
-   ```
-
-   This command will:
-   - Build the Docker images as specified in the `Dockerfile`.
-   - Start the containers as defined in `docker-compose.yml`.
-   - Run the Django application inside a Docker container, accessible at `http://localhost:8000`.
-
-
 
 ### Example Request/Response
 
@@ -239,6 +222,23 @@ To containerize and run the application using Docker, follow these steps:
     ]
     ```
 
+### Docker Setup
+
+To containerize and run the application using Docker, follow these steps:
+
+1. Ensure Docker is installed and running on your system. For Windows, make sure Docker Desktop is running and that your terminal has elevated privileges (run as administrator).
+
+2. Build and run the containers:
+   ```bash
+   docker-compose up --build
+   ```
+
+   This command will:
+   - Build the Docker images as specified in the `Dockerfile`.
+   - Start the containers as defined in `docker-compose.yml`.
+   - Run the Django application inside a Docker container, accessible at `http://localhost:8000`.
+
+   
 ### Notes
 
 - Ensure that all endpoints (except signup and login) require authentication.
