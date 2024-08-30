@@ -1,4 +1,3 @@
-
 ```markdown
 # Social Network
 
@@ -17,7 +16,7 @@ A social networking application that allows users to connect with each other by 
 
 ## Features
 
-- User registration and login using email and password (case insensitive).
+- User registration and login using first name, last name, email, and password (case insensitive).
 - Search for other users by email or name with pagination (up to 10 records per page).
 - Send, accept, and reject friend requests.
 - List of friends (users who have accepted friend requests).
@@ -68,11 +67,10 @@ To run the server, use the following command:
 ```bash
 python manage.py runserver
 ```
-You can then access the API at http://127.0.0.1:8000/.
+
+You can then access the API at `http://127.0.0.1:8000/`.
 
 ## API Endpoints
-
-List the available API endpoints:
 
 - `POST /sign-up/` - User signup with first name, last name, email, and password.
 - `POST /sign-in/` - User login with email and password.
@@ -83,7 +81,6 @@ List the available API endpoints:
 - `POST /reject-friend-request/` - Reject a friend request.
 - `GET /list-friends/` - List all friends (users who have accepted friend requests).
 - `GET /list-pending-requests/` - List all pending friend requests received.
-
 
 ### Example Request/Response
 
@@ -101,7 +98,7 @@ List the available API endpoints:
 - **Response**:
     ```json
     {
-        "message": "Signup success for <user_email>."
+        "message": "User created successfully."
     }
     ```
 
@@ -117,7 +114,7 @@ List the available API endpoints:
 - **Response**:
     ```json
     {
-        "message": "User logged in successfully"
+        "message": "Login successful."
     }
     ```
 
@@ -227,7 +224,15 @@ List the available API endpoints:
 ### Notes
 
 - Ensure that all endpoints (except signup and login) require authentication.
-- Implemented rate limiting to restrict users from sending more than 3 friend requests within a minute.
+- Implement rate limiting to restrict users from sending more than 3 friend requests within a minute.
+
+## Testing
+
+To run the tests for your project, use the following command:
+
+```bash
+python manage.py test
+```
 
 ## Contributing
 
