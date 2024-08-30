@@ -9,7 +9,7 @@ urlpatterns = [
     path("search-user/", views.search_user, name='search-user'),
     path("send-friend-request/", views.send_friend_request, name='send-friend-request'),
     path("accept-friend-request/<int:request_id>", views.accept_friend_request, name='accept-friend-request'),
-    path("reject-friend-request/", views.reject_friend_request, name='reject-friend-request'),
+    path("reject-friend-request/<int:request_id>", views.reject_friend_request, name='reject-friend-request'),
     path("list-friends/", views.list_friends, name='list-friends'),
     path("list-pending-requests/", views.list_pending_requests, name='list-pending-requests'),
 ]
