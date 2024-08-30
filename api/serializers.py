@@ -2,6 +2,7 @@ from rest_framework import serializers
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.contrib.auth import authenticate
+from api.models import FriendRequest
 
 class UserSignUpSerializer(serializers.ModelSerializer):
     first_name = serializers.CharField(write_only=True)
@@ -58,10 +59,31 @@ class UserSignInSerializer(serializers.Serializer):
         
 
 
+class UserSearchSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = User
+        fields = ['id', 'first_name', 'last_name', 'email', 'username']
+    
+
+
+class FriendRequestSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = FriendRequest
+        fields = ['id', 'sender', 'receiver', 'status', 'created_at']
+        read_only_fields = ['sender', 'status', 'created_at']
 
 
 
+class ListFriendsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'first_name', 'last_name', 'email']
 
 
 
-
+class PendingRequestSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'first_name', 'last_name', 'email']
